@@ -1,0 +1,11 @@
+#PyCharm stuff
+.idea/
+.virtual_documents/
+*/**/__pycache__/
+
+*/build/
+*/dist/
+*.exe
+*.spec
+
+uv.lock

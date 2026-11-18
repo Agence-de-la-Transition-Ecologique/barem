@@ -1,5 +1,4 @@
-import signal
-import threading
+import sys
 import time
 import os
 from pathlib import Path
@@ -22,12 +21,14 @@ filieres_matieres = pd.read_excel(
     usecols="A",
     header=0,
 ).dropna()["Matières"].tolist()
+
 filieres_node_possible_types = pd.read_excel(
     data_path / "filieres.xlsx",
     sheet_name="Métadonnées",
     usecols="C",
     header=0,
 ).dropna()["Type de nœud (dans l'ordre)"].tolist()
+
 filieres_data = read_tables(data_path, scope="filières")
 
 batiment_node_possible_types = pd.read_excel(
@@ -36,6 +37,7 @@ batiment_node_possible_types = pd.read_excel(
     usecols="A",
     header=0,
 ).dropna()["Type de nœud (dans l'ordre)"].tolist() + ["Travaux", "Typologie"]
+
 batiment_data = read_tables(data_path, scope="bâtiment")
 
 
@@ -46,12 +48,71 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])  # BOOTSTRAP, 
 def shutdown():
     os._exit(0)
 
+
+def resource_path(relative_path: str) -> Path:
+    base_path = Path(
+        getattr(
+            sys,
+            "_MEIPASS",
+            Path(__file__).resolve().parent,
+        )
+    )
+
+    return base_path / relative_path
+
+
+warning_modal = dbc.Modal(
+    [
+        dbc.ModalHeader(dbc.ModalTitle("⚠ Hypothèses, limites et niveau de confiance des résultats")),
+        dbc.ModalBody(
+            html.Iframe(
+                srcDoc=open(
+                    resource_path("assets/data_warning.html"),
+                    encoding="utf-8"
+                ).read(),
+                style={
+                    "width": "100%",
+                    "height": "80vh",
+                    "border": "none",
+                },
+            )
+        )
+    ],
+    id="modal-qualite", size="xl", scrollable=True, is_open=False,
+)
+
 # App layout
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(html.H1("Dashboard - Disponibilité des Ressources", className="text-center text-primary mt-4"),
                 width=12)
     ]),
+    html.Div(
+        dbc.Alert(
+            [
+                html.Div(
+                    [
+                        "⚠ ",
+                        html.Strong(
+                            "À lire avant d'interpréter les données"
+                        ),
+                    ],
+                    className="mb-2",
+                ),
+
+                dbc.Button(
+                    "Hypothèses, limites et niveau de confiance des résultats",
+                    id="btn-qualite",
+                    color="link",
+                    className="p-0",
+                ),
+            ],
+            color="warning",
+            className="mb-0 d-inline-block text-center",
+        ),
+        className="text-center my-2",
+    ),
+    warning_modal,
     dbc.Row([
         dbc.Col([
             dbc.Card([
@@ -66,6 +127,16 @@ app.layout = dbc.Container([
         ])
     ]),
 ], fluid=True)
+
+
+@app.callback(
+    Output("modal-qualite", "is_open"),
+    Input("btn-qualite", "n_clicks"),
+    State("modal-qualite", "is_open"),
+    prevent_initial_call=True,
+)
+def toggle_modal(n, is_open):
+    return not is_open
 
 
 # The callback to render each tab's content when switching between the 2
@@ -336,4 +407,4 @@ def update_batiment_diagram(selected_lots, selected_typologies, selected_travaux
 # Run the app
 if __name__ == '__main__':
     webbrowser.open("http://127.0.0.1:8050")
-    app.run(port=8050, debug=False)
+    app.run(host="127.0.0.1", port=8050, debug=False)

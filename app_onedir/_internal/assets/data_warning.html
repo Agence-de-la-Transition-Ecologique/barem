@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Hypothèses, limites et niveau de confiance des résultats</title>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #ebf0f5;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.warning-box {
+    background-color: #fff8e1;
+    border-left: 5px solid #f9a825;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.82rem;
+}
+
+th {
+    background-color: #ebf0f5;
+    color: #2c3e50;
+    border: 1px solid #d8dde3;
+    padding: 6px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+td {
+    border: 1px solid #d8dde3;
+    padding: 4px 6px;
+    line-height: 1.5;
+}
+
+td.label {
+    text-align: left;
+    max-width: 220px;
+}
+
+td.center {
+    text-align: center;
+}
+
+.score-4 {
+    background-color: #2E7D32;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-3 {
+    background-color: #7CB342;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-2 {
+    background-color: #F9A825;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-1 {
+    background-color: #EF6C00;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-0 {
+    background-color: #C62828;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.legend {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.legend span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.check {
+    color: #2E7D32;
+    font-weight: bold;
+}
+
+.cross {
+    color: #C62828;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="warning-box">
+
+<p>
+Les flux présentés dans cet outil sont issus des travaux réalisés par le CSTB pour le compte de l’ADEME.
+La méthodologie de quantification utilisée est détaillée dans le rapport associé
+(<em>Matières premières pour le bâtiment : Quels besoins ? - ADEME - 2026</em>).
+</p>
+
+<p>
+Les résultats proposés doivent être interprétés avec précaution. Ils ne correspondent pas à des flux
+directement observés ou mesurés sur le terrain, mais résultent d’un travail de modélisation et de
+croisement de multiples sources de données. Cette approche vise à reconstituer les flux de matières tout
+au long de leur cycle de vie, depuis les matériaux et produits mis en œuvre jusqu’aux différents types
+d’opérations du secteur du bâtiment, en tenant compte des usages des bâtiments concernés.
+</p>
+
+<p>
+Par ailleurs, les résultats reposent sur les données disponibles au moment de l’étude. L’année de
+référence retenue est 2019, seule période pour laquelle un niveau de couverture et de fiabilité suffisant
+des différentes sources de données a pu être garanti. Les valeurs présentées doivent ainsi être considérées
+comme des estimations représentatives de cette période et non comme des mesures exhaustives ou
+directement observées.
+</p>
+
+<p>
+La qualité des données et la robustesse des hypothèses mobilisées varient selon les familles de produits
+étudiées. Le tableau ci-dessous fournit des éléments d’appréciation permettant d’évaluer le niveau de
+confiance associé aux résultats présentés et d’en faciliter l’interprétation.
+</p>
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Famille de produit</th>
+<th>Données disponibles pour l'année souhaitée ?</th>
+<th>Répartition par typologie de bâtiment disponible ?</th>
+<th>Répartition par type de travaux disponible ?</th>
+<th>Hypothèse de matérialité robuste ?</th>
+<th>Note de confiance</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="label">Couverture de toit en petits éléments</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-4">4</td>
+</tr>
+
+<tr>
+<td class="label">Couverture de toit en grands éléments</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-4">4</td>
+</tr>
+
+<tr>
+<td class="label">Fenêtres</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="score-3">3</td>
+</tr>
+
+<tr>
+<td class="label">Isolation</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="score-3">3</td>
+</tr>
+
+<tr>
+<td class="label">Revêtements muraux</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-4">4</td>
+</tr>
+
+<tr>
+<td class="label">Revêtements de sol</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-3">3</td>
+</tr>
+
+<tr>
+<td class="label">Étanchéité</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-4">4</td>
+</tr>
+
+<tr>
+<td class="label">Portes</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="score-1">1</td>
+</tr>
+
+<tr>
+<td class="label">Façades</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-2">2</td>
+</tr>
+
+<tr>
+<td class="label">Plâtre</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="score-2">2</td>
+</tr>
+
+<tr>
+<td class="label">Acier (gros œuvre)</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="score-3">3</td>
+</tr>
+
+<tr>
+<td class="label">Béton (gros œuvre)</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="score-2">2</td>
+</tr>
+
+<tr>
+<td class="label">Bois (gros œuvre)</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="score-1">1</td>
+</tr>
+
+<tr>
+<td class="label">Terre cuite (gros œuvre)</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="score-2">2</td>
+</tr>
+
+<tr>
+<td class="label">Câbles</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="score-0">0</td>
+</tr>
+
+<tr>
+<td class="label">Ascenseurs</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="center">❌</td>
+<td class="score-0">0</td>
+</tr>
+
+<tr>
+<td class="label">Équipements CVC</td>
+<td class="center">❌</td>
+<td class="center">✅</td>
+<td class="center">✅</td>
+<td class="center">❌</td>
+<td class="score-2">2</td>
+</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

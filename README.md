@@ -153,14 +153,14 @@ pip install .
 Pour un exécutable contenu dans un fichier unique, lancez la commande :
 ```
 cd src
-pyinstaller --onefile --windowed --name "BAREM" --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onefile --clean app.py
+pyinstaller --onefile --windowed --name "BAREM" --noupx --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onefile --clean app.py
 ```
 Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onefile*.
 
 Pour un exécutable contenu dans un dossier unique (peut résoudre certains problèmes rencontrés au lancement), lancez la commande :
 ```
 cd src
-pyinstaller --onedir --windowed --name "BAREM" --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onedir --clean app.py
+pyinstaller --onedir --windowed --name "BAREM" --noupx --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onedir --clean app.py
 robocopy ..\app_onedir\BAREM ..\app_onedir /E /MOVE
 ```
 Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onedir*.

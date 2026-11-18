@@ -150,13 +150,22 @@ pip install .
 ``` 
 
 2) Création du *.exe* (avec PyInstaller):
-Lancez la commande :
+Pour un exécutable contenu dans un fichier unique, lancez la commande :
 ```
 cd src
-pyinstaller --onefile --windowed --name "BAREM" --add-data "assets:assets" --icon=assets/app_icon.ico --distpath . --clean app.py
+pyinstaller --onefile --windowed --name "BAREM" --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onefile --clean app.py
 ```
-Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/src*. Ce fichier
-est exécutable en double-cliquant dessus, tant qu'il est accompagné du dossier *data/*, avec les 2 fichiers Excels
+Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onefile*.
+
+Pour un exécutable contenu dans un dossier unique (peut résoudre certains problèmes rencontrés au lancement), lancez la commande :
+```
+cd src
+pyinstaller --onedir --windowed --name "BAREM" --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onedir --clean app.py
+robocopy ..\app_onedir\BAREM ..\app_onedir /E /MOVE
+```
+Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onedir*.
+
+Ce fichier est exécutable en double-cliquant dessus, tant qu'il est accompagné du dossier *data/*, avec les 2 fichiers Excels
 *filieres.xslx* et *batiment.xlsx*.
 
 

@@ -163,10 +163,9 @@ cd src
 pyinstaller --onedir --windowed --name "BAREM" --noupx --add-data "assets;assets" --icon=assets/app_icon.ico --distpath ../app_onedir --clean app.py
 robocopy ..\app_onedir\BAREM ..\app_onedir /E /MOVE
 ```
-Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onedir*.
+Au bout de quelques minutes, un fichier *BAREM.exe* sera créé dans le dossier *barem/app_onedir*. 
 
-Ce fichier est exécutable en double-cliquant dessus, tant qu'il est accompagné du dossier *data/*, avec les 2 fichiers Excels
-*filieres.xslx* et *batiment.xlsx*.
+Les dossiers *app_onefile/* et *app_onedir/* sont déplaçables et peuvent être transmis. A l'intérieur, le fichier *BAREM.exe* est exécutable en double-cliquant dessus, tant qu'il est accompagné du dossier *data/* (et du dossier *_internal/* dans le cas *app_onedir/*), avec les 2 fichiers Excels *filieres.xslx* et *batiment.xlsx*.
 
 
 ### Structure du projet
